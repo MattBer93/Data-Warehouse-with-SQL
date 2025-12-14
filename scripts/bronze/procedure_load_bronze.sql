@@ -1,3 +1,25 @@
+/*
+================================================
+STORED PROCEDURE: Load Data from Source > Bronze
+================================================
+
+This script loads data into the Bronze tables from external CSV files.
+What it does:
+	- Truncate the table first
+	- It BULK INSERT data from the csv files.
+
+There are no parameters.
+There are variables:
+	- start_time (to calculate loading time for each table)
+	- end_time (to calculate loading time for each table)
+	- total_start_time (to calculate loading time for all the tables)
+	- total_end_time (to calculate loading time for all the tables)
+
+USAGE:
+	EXEC bronze.load_bronze
+
+*/
+
 -- Create a stored procedure
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS 
 BEGIN
