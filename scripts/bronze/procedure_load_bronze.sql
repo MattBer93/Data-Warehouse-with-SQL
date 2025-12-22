@@ -8,15 +8,14 @@ What it does:
 	- Truncate the table first
 	- It BULK INSERT data from the csv files.
 
-There are no parameters.
-There are variables:
+No parameters.
+Variables:
 	- start_time (to calculate loading time for each table)
 	- end_time (to calculate loading time for each table)
 	- total_start_time (to calculate loading time for all the tables)
 	- total_end_time (to calculate loading time for all the tables)
 
-USAGE:
-	EXEC bronze.load_bronze
+To use: EXEC bronze.load_bronze
 
 */
 
@@ -24,8 +23,10 @@ USAGE:
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS 
 BEGIN
 
+	-- Declare variables
 	DECLARE @start_time DATETIME, @end_time DATETIME, @total_start_time DATETIME, @total_end_time DATETIME;
 
+	-- Error handling
 	BEGIN TRY
 		
 		SET @total_start_time = GETDATE();
@@ -37,7 +38,7 @@ BEGIN
 		PRINT 'Loading CRM tables';
 		PRINT '---------------------------------------------------------------------';
 
-		--
+		-- crm_cust_info
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating bronze.crm_cust_info';
 		TRUNCATE TABLE bronze.crm_cust_info;
@@ -53,7 +54,7 @@ BEGIN
 		PRINT '>> Load Duration bronze.crm_cust_info: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds'
 		PRINT '==========';
 
-		--
+		-- crm_prd_info
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating bronze.crm_prd_info';
 		TRUNCATE TABLE bronze.crm_prd_info
@@ -70,7 +71,7 @@ BEGIN
 		PRINT '==========';
 
 
-		--
+		-- crm_sales_details
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating bronze.crm_sales_details';
 		TRUNCATE TABLE bronze.crm_sales_details
@@ -90,7 +91,7 @@ BEGIN
 		PRINT 'Loading ERP tables';
 		PRINT '---------------------------------------------------------------------';
 
-		--
+		-- erp_cust_az12
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating bronze.erp_cust_az12';
 		TRUNCATE TABLE bronze.erp_cust_az12
@@ -106,7 +107,7 @@ BEGIN
 		PRINT '>> Load Duration bronze.erp_cust_az12: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds'
 		PRINT '==========';
 
-		--
+		-- erp_loc_a101
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating bronze.erp_loc_a101';
 		TRUNCATE TABLE bronze.erp_loc_a101
@@ -122,7 +123,7 @@ BEGIN
 		PRINT '>> Load Duration bronze.erp_loc_a101: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds'
 		PRINT '==========';
 
-		--
+		-- erp_px_cat_g1v2
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating bronze.erp_px_cat_g1v2';
 		TRUNCATE TABLE bronze.erp_px_cat_g1v2
