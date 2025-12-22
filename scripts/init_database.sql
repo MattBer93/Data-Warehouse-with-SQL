@@ -2,9 +2,8 @@
 =====================
 Create DB and Schema
 =====================
-PURPOSE: 
-	Create a new DB 'DataWareHosue' after checking if it already exists. If it exists, the DB is dropped and recreated.
-	Afterwards, create 3 schemas: bronze, slver, gold.
+Create a new DB 'DataWareHosue' after checking if it already exists. If it exists, the DB is dropped and recreated.
+Afterwards, create 3 schemas: bronze, slver, gold.
 
 WARNING: Since the script drops whole DB, proceed with caution
 */
