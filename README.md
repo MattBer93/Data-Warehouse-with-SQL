@@ -22,3 +22,5 @@ The ETL process is managed according to the Medallion Architecture principles:
 - Product Performance
 - Sales Trends
 
+In addition to the scripts needed for the development of the project, I provided as well all my notes from Baraa's [Complete SQL Bootcamp](https://www.udemy.com/share/10d8DP3@XEFTy27l7cAdY5ZaSZ3ZYFxj1dPfB86BVgwQLDT5Q4atcEzJAhB9R18LcSA7qcK3ww==/) in the file "all_notes.sql". 
+
